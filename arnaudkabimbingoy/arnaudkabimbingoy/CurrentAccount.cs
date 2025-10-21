@@ -21,27 +21,22 @@ namespace arnaudkabimbingoy
             //Console.WriteLine("Compte créé avec numéro : " + Number);
         }
 
-        protected override double CalculateInterest(Account account)
+        protected override double CalculateInterest()
         {
-            //Si c'est un Saving Account alors 4.5%
-            //sinon Si c'est un Current Account et que le solde est positif alores 3%
-            //sinon 9.75%
-
-            /*
-             à l'aide account je dois recuperer le type de compte deriere.
-             */
-            return 0;
+            if (base.Balance >= 0)
+                return 3.0 / 100;
+            return 9.75 / 100;
         }
 
 
         public override void Deposit(double amount)
         {
-
+            base.Balance += amount;
         }
 
         public override void Withdraw(double amount)
         {
-
+            base.Balance -= amount;
         }
 
         public override string ToString()

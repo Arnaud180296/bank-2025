@@ -15,17 +15,17 @@ namespace arnaudkabimbingoy
             base.Balance = balance;
             Owner = owner;
         }
-        protected override double CalculateInterest(Account account)
+        protected override double CalculateInterest()
         {
-            return 0;
+            return 4.5 / 100;
         }
         public override void Deposit(double amount)
         {
-
+            base.Balance += amount;
         }
         public override void Withdraw(double amount)
         {
-            //retrait
+            base.Balance -= amount;
         }
     }
 }

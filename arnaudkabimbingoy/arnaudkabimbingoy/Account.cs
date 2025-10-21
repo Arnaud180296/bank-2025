@@ -14,16 +14,16 @@ namespace arnaudkabimbingoy
 
         public double ApplyInterest()
         {
-            return Balance; //+ CalculateInterest();
+            return Balance + (Balance * CalculateInterest());
         }
         public virtual void Withdraw(double amount)
         {
-
+            Balance += amount;
         }
         public virtual void Deposit(double amount)
         {
-
+            Balance -= amount;
         }
-        protected abstract double CalculateInterest(Account account);
+        protected abstract double CalculateInterest();
     }
 }

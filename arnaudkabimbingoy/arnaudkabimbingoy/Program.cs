@@ -12,12 +12,11 @@ internal class Program
         Person person3 = new Person("Georgina", "Rodriguez", new DateTime(1994, 01, 27));
         //Person person4 = new Person("Ester", "Exposito", new DateTime(2000, 01, 26));
 
-        Account currentAccount1 = new CurrentAccount(3200000, 750000, person1);
-        Account currentAccount2 = new CurrentAccount(46000000, 17000000, person2);
-        Account currentAccount3 = new CurrentAccount(930000000, 120000000, person3);
+        Account currentAccount1 = new CurrentAccount(500, 100, person1);
+        Account currentAccount2 = new CurrentAccount(1000, 300, person2);
+        Account currentAccount3 = new CurrentAccount(5000, 1200, person3);
         Account currentAccount4 = new CurrentAccount(31, 10, person1);
-
-        Account savingAccount1 = new SavingsAccount(782057, person1);
+        Account savingAccount1 = new SavingsAccount(8000, person1);
 
         bank1.AddAccount(currentAccount1);
         bank1.AddAccount(currentAccount2);
@@ -25,6 +24,13 @@ internal class Program
         bank1.AddAccount(currentAccount4);
         bank1.AddAccount(savingAccount1);
 
+        Console.WriteLine($"(avant transfert vers le compte d'epargne)\nSolde du compte courant : {bank1.GetBalance(currentAccount1.Number)}");
+        currentAccount1.Withdraw(100);
+        Console.WriteLine($"(apres transfert vers le compte d'epargne)\nSolde du compte courant : {bank1.GetBalance(currentAccount1.Number)}");
+        savingAccount1.Deposit(100);
         Console.WriteLine($"Voici le total de tous les comtpes associé à {person1.Firstname} {person1.Lastname} {bank1.GetBalanceAllAccount("Ester Exposito")}");
+
+        Console.WriteLine(currentAccount1.ApplyInterest());
+        Console.WriteLine(savingAccount1.ApplyInterest());
     }
 }
