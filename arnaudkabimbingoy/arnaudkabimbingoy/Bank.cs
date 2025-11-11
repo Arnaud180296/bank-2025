@@ -21,7 +21,7 @@ namespace arnaudkabimbingoy
             if (!Accounts.ContainsKey(account.Number))
                 Accounts.Add(account.Number, account);
             else
-                Console.WriteLine("Ce compte existe deja...");
+                Console.WriteLine("Ce numero de compte existe deja...");
         }
 
         public void DeleteAccount(string number)
