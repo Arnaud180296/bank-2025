@@ -9,11 +9,9 @@ namespace arnaudkabimbingoy
     internal sealed class SavingsAccount : Account
     {
         public DateTime DateLastWithdraw { get; set; }
-        public SavingsAccount(double balance, Person owner)
+        public SavingsAccount(string number,double balance, Person owner) : base(number, balance, owner)
         {
-            Number = "BE" + new Random().NextInt64(99999999999999).ToString();
-            base.Balance = balance;
-            Owner = owner;
+            
         }
         protected override double CalculateInterest()
         {

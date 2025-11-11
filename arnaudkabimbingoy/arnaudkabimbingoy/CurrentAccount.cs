@@ -11,13 +11,9 @@ namespace arnaudkabimbingoy
     {
         public double CreditLine { get; set; }
 
-        public CurrentAccount(double balance, double creditLine, Person owner)
+        public CurrentAccount(string number, double balance, double creditLine, Person owner) : base(number, balance, owner)
         {
-            Number = "BE" + new Random().NextInt64(99999999999999).ToString();
-            base.Balance = balance;
             CreditLine = creditLine;
-            Owner = owner;
-
             //Console.WriteLine("Compte créé avec numéro : " + Number);
         }
 
