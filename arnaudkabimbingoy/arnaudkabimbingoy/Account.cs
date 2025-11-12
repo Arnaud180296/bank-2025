@@ -24,14 +24,10 @@ namespace arnaudkabimbingoy
         {
             return Balance + (Balance * CalculateInterest());
         }
-        public virtual void Withdraw(double amount)
-        {
-            Balance -= amount;
-        }
-        public virtual void Deposit(double amount)
-        {
-            Balance += amount;
-        }
+        public abstract void Withdraw(double amount);
+        
+        public abstract void Deposit(double amount);
+        
         protected abstract double CalculateInterest();
     }
 }
