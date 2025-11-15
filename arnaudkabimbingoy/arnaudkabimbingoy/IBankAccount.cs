@@ -12,5 +12,6 @@ namespace arnaudkabimbingoy
         string Number { get; }
 
         public abstract double ApplyInterest();
+        
     }
 }

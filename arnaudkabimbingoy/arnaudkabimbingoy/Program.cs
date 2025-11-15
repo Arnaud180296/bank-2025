@@ -12,8 +12,8 @@ internal class Program
         Person person3 = new Person("Georgina", "Rodriguez", new DateTime(1994, 01, 27));
         //Person person4 = new Person("Ester", "Exposito", new DateTime(2000, 01, 26));
 
-        Account currentAccount1 = new CurrentAccount("BE" + new Random().NextInt64(99999999999999).ToString(), 500, 100, person1);
-        Account currentAccount2 = new CurrentAccount("BE" + new Random().NextInt64(99999999999999).ToString(), 1000, 300, person2);
+        IBankAccount currentAccount1 = new CurrentAccount("BE" + new Random().NextInt64(99999999999999).ToString(), 500, 100, person1);
+        IBankAccount currentAccount2 = new CurrentAccount("BE" + new Random().NextInt64(99999999999999).ToString(), 1000, 300, person2);
         Account currentAccount3 = new CurrentAccount("BE" + new Random().NextInt64(99999999999999).ToString(), 5000, 1200, person3);
         Account currentAccount4 = new CurrentAccount("BE" + new Random().NextInt64(99999999999999).ToString(), 31, 10, person1);
         Account savingAccount1 = new SavingsAccount("BE" + new Random().NextInt64(99999999999999).ToString(), 8000, person1);

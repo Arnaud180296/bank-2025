@@ -8,7 +8,12 @@ namespace arnaudkabimbingoy
 {
     internal sealed class SavingsAccount : Account
     {
-        public DateTime DateLastWithdraw { get; set; }
+        public DateTime DateLastWithdraw { get; private set; }
+
+        public SavingsAccount(string number, Person owner) : base(number, owner)
+        {
+
+        }
         public SavingsAccount(string number,double balance, Person owner) : base(number, balance, owner)
         {
             
@@ -19,11 +24,11 @@ namespace arnaudkabimbingoy
         }
         public override void Deposit(double amount)
         {
-            base.Balance += amount;
+            base.Deposit(amount);
         }
         public override void Withdraw(double amount)
         {
-            base.Balance -= amount;
+            base.Withdraw(amount);
         }
     }
 }

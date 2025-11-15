@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace arnaudkabimbingoy
 {
-    internal abstract class Account
+    internal abstract class Account : IBankAccount
     {
-        public string Number { get; set; }
-        public double Balance { get; protected set; }
-        public Person Owner { get; set; }
+        public string Number { get; private set; }
+        public double Balance { get; private set;}
+        public Person Owner { get; private set; }
 
-
+        public Account (string number, Person owner)
+        {
+            Number = number;
+            Owner = owner;
+        }
         public Account(string number, double balance, Person owner)
         {
             Number = number;
@@ -24,9 +28,16 @@ namespace arnaudkabimbingoy
         {
             return Balance + (Balance * CalculateInterest());
         }
-        public abstract void Withdraw(double amount);
+
+        public virtual void Withdraw(double amount)
+        {
+            Balance -= amount;
+        }
         
-        public abstract void Deposit(double amount);
+        public virtual void Deposit(double amount)
+        {
+            Balance += amount;
+        }
         
         protected abstract double CalculateInterest();
     }

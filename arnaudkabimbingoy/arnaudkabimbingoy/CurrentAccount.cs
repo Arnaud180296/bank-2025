@@ -11,6 +11,9 @@ namespace arnaudkabimbingoy
     {
         public double CreditLine { get; set; }
 
+        public CurrentAccount(string number, double creditLine,Person owner) : base(number, owner) { 
+            CreditLine = creditLine;
+        }
         public CurrentAccount(string number, double balance, double creditLine, Person owner) : base(number, balance, owner)
         {
             CreditLine = creditLine;
@@ -27,12 +30,12 @@ namespace arnaudkabimbingoy
 
         public override void Deposit(double amount)
         {
-            base.Balance += amount;
+            base.Deposit(amount);
         }
 
         public override void Withdraw(double amount)
         {
-            base.Balance -= amount;
+            base.Withdraw(amount);
         }
 
         public override string ToString()

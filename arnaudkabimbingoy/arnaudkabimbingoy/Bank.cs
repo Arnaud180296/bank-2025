@@ -8,15 +8,20 @@ namespace arnaudkabimbingoy
 {
     internal sealed class Bank
     {
-        public Dictionary<string, Account> Accounts { get; } = new Dictionary<string, Account>();
+        //Au besoin revenir au dernier commit
+        public Dictionary<string, IBankAccount> Accounts { get; } = []; //mon implementation de base ne permet pas d'utiliser les interfaces sans poser probleme
         public string Name { get; set; }
+        public Person Owner { get; }
+        public string Number { get; }
+        public double Balance {  get; set; }
+
         public Bank(string name)
         {
             Name = name;
         }
 
 
-        public void AddAccount(Account account)
+        public void AddAccount(IBankAccount account)
         {
             if (!Accounts.ContainsKey(account.Number))
                 Accounts.Add(account.Number, account);
@@ -45,6 +50,22 @@ namespace arnaudkabimbingoy
                 }
             }
             return somme;
+        }
+
+
+        public void Withdraw(double amount)
+        {
+            Balance -= amount;
+        }
+
+        public void Deposit(double amount)
+        {
+            Balance += amount;
+        }
+
+        public double ApplyInterest()
+        {
+            throw new NotImplementedException();
         }
     }
 }

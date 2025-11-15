@@ -8,9 +8,9 @@ namespace arnaudkabimbingoy
 {
     internal interface IAccount
     {
-        double Balance { get; }
+        double Balance { get;}
 
-        public abstract void Deposit();
-        public abstract void Withdraw();
+        public abstract void Deposit(double amount);
+        public abstract void Withdraw(double amount);
     }
 }
