@@ -31,11 +31,16 @@ namespace arnaudkabimbingoy
 
         public virtual void Withdraw(double amount)
         {
+            if (Balance < amount)
+                throw new InsufficientBalanceException("Le solde du compte bancaire n'est pas suffisant pour effectuer ce retrait...");
             Balance -= amount;
         }
         
         public virtual void Deposit(double amount)
         {
+            if(amount < 0)
+                throw new ArgumentOutOfRangeException();
+
             Balance += amount;
         }
         

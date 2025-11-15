@@ -9,7 +9,20 @@ namespace arnaudkabimbingoy
 
     internal sealed class CurrentAccount : Account
     {
-        public double CreditLine { get; set; }
+        public double CreditLine { 
+            get;
+            
+            set
+            {
+                field = value;
+                
+                if (CreditLine <= 0)
+                {
+                    
+                    throw new ArgumentOutOfRangeException("La creditline doit etre superieur à 0"); 
+                }
+            }
+        }
 
         public CurrentAccount(string number, double creditLine,Person owner) : base(number, owner) { 
             CreditLine = creditLine;

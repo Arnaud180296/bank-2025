@@ -30,6 +30,15 @@ internal class Program
         savingAccount1.Deposit(100);
         Console.WriteLine($"Voici le total de tous les comtpes associé à {person1.Firstname} {person1.Lastname} {bank1.GetBalanceAllAccount("Ester Exposito")}");
 
+        try
+        {
+            currentAccount1.Withdraw(5000);
+        }
+        catch (InsufficientBalanceException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
         Console.WriteLine(currentAccount1.ApplyInterest());
         Console.WriteLine(savingAccount1.ApplyInterest());
     }
